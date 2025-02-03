@@ -104,9 +104,9 @@ mod tests {
 
     fn random_bytes(size: usize) -> Vec<u8> {
         let mut bytes = Vec::with_capacity(size);
-        let mut r = SmallRng::from_entropy();
+        let mut r = SmallRng::from_os_rng();
         while bytes.len() < size {
-            bytes.push(r.gen::<u8>());
+            bytes.push(r.random::<u8>());
         }
         bytes
     }
